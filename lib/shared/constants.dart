@@ -42,6 +42,7 @@ class Constants {
   }
   static String myName = "";
   static String? userid;
+  static String? userRole;
   static Color kprimarycolor= Color(0xff2B475E);
 
 }

@@ -343,11 +343,11 @@ class _RegisterState extends State<Register> {
                           final sharedPref = await SharedPreferences.getInstance();
                           await sharedPref.setString('userID', FirebaseAuth.instance.currentUser!.uid.toString());
                           Constants.userid = sharedPref.getString('userID');
+                          sharedPref.setString('userRole',userRole);
+                          Constants.userRole = sharedPref.getString('userRole');
                           Constants.navigatorPushAndRemove(
                             context: context,
-                            screen: 'userRole' != 'Patient'
-                                ? const Patient()
-                                : const Pharmacy(),
+                            screen: Patient(),
                           );
                         });
                       }).then((value) {

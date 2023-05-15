@@ -2,7 +2,6 @@
 import 'package:chatapp_master/models/chat_usermodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../chat contorllers/chathome_controller/chathome_cubit.dart';
 import '../../chat contorllers/chathome_controller/chathome_states.dart';
 import '../../shared/usable/customtextformfeild.dart';
@@ -16,8 +15,7 @@ class ChatHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var layoutCubit = BlocProvider.of<LayoutCubit>(context)
-      ..getmydata()
-      ..getusers();
+      ..getmydata()..getusers();
     return SafeArea(
         child: BlocConsumer<LayoutCubit, LayoutStates>(
           listener: (context, state) {},
@@ -52,6 +50,7 @@ class ChatHome extends StatelessWidget {
                           return GestureDetector(
                             onTap: (){
                               Navigator.push(context, MaterialPageRoute(builder: (context){
+                                print(layoutCubit.patientsid[index]);
                                 return ChatPage(
                                   user:layoutCubit.usersFiltered.isEmpty?
                                   layoutCubit.users[index]:
